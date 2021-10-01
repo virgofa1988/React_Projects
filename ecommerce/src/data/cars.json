@@ -1,0 +1,6 @@
+[
+  { "icon": "./img/Cars/icon-red.jpg", "carImgUlr": "./img/Cars/red-car.jpg" },
+  { "icon": "./img/Cars/icon-black.jpg", "carImgUlr": "./img/Cars/black-car.jpg" },
+  { "icon": "./img/Cars/icon-steel.jpg", "carImgUlr": "./img/Cars/steel-car.jpg" },
+  { "icon": "./img/Cars/icon-silver.jpg", "carImgUlr": "./img/Cars/silver-car.jpg" }
+]

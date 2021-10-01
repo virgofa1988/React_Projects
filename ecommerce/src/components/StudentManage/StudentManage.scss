@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.StudentManagement {
+  width: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+}
+.studentList {
+  ul {
+    padding-left: 0;
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
