@@ -5,6 +5,5 @@
     "baseUrl": "./",
     "moduleResolution": "node"
   },
-  //Thay vì import file đường dẫn tuyệt đối, ta sẽ import bằng đường dẫn tương đối
   "include": ["src"]
 }

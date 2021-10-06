@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 // import { decreaseCount, increaseCount } from '../../actions/counter.action'
 import { decreaseCount, increaseCount } from './counter.slice'
+
 export default function Counter() {
   const dispatch = useDispatch()
   //connect reducer
