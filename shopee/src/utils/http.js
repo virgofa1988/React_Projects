@@ -17,7 +17,9 @@ class Http {
         return result
       },
       ({ response }) => {
-        return Promise.reject(response)
+        console.log('Interceptors', response)
+        const result = { ...response.data, status: response.status }
+        return Promise.reject(result)
       }
     )
 

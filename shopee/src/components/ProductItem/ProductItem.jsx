@@ -4,9 +4,9 @@ import ProductRating from '../ProductRating/ProductRating'
 import * as S from './productItem.style'
 import PropTypes from 'prop-types'
 import { path } from 'src/constants/path'
-import { generateNameId } from 'src/utils/helper'
+import { formatK, generateNameId } from 'src/utils/helper'
 export default function ProductItem({ productDetail }) {
-  console.log(productDetail)
+  // console.log(productDetail)
   return (
     <S.Product>
       <Link to={path.products + `/${generateNameId(productDetail)}`}>
@@ -28,7 +28,7 @@ export default function ProductItem({ productDetail }) {
             <S.ProductItemMeta>
               <ProductRating rating={productDetail.rating} />
               <S.ProductItemSold>
-                <span>{productDetail.view}K</span>
+                <span>{formatK(productDetail.view)}</span>
                 <span>Sold: {productDetail.sold.toLocaleString()}</span>
               </S.ProductItemSold>
             </S.ProductItemMeta>

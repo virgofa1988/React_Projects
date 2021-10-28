@@ -60,7 +60,7 @@ export const ButtonController = styled.button`
   height: 3.4rem;
   border-radius: 2px;
   border: 0;
-  background: ${({ disable }) => (disable ? '#f9f9f9' : '#fff')};
+  background: ${({ disabled }) => (disabled ? '#f9f9f96b' : '#fff')};
   margin-top: 0.125rem;
   svg {
     width: 1rem;

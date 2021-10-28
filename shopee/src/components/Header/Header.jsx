@@ -1,11 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import { useHistory } from 'react-router'
 import { SVGCartIcon, SVGSearchIcon, SVGShopeeLogo } from 'src/assets/svgs/svg'
+import { path } from 'src/constants/path'
 import useHopover from 'src/Hooks/useHopover'
+import useQuery from 'src/Hooks/useQuery'
+import qs from 'query-string'
 import Navbar from '../Navbar/Navbar'
 import Popover from '../Popover/Popover'
 import * as S from './header.style'
 export default function Header() {
   const { activePopover, showPopover, hidePopover } = useHopover()
+  const { control, getValues, handleSubmit, setValue } = useForm({
+    defaultValues: {
+      name: ''
+    }
+  })
+  const query = useQuery()
+  const history = useHistory()
+  const searchByNameAPI = data => {
+    const _filters = { ...query, ...data }
+    console.log('searchByNameAPI ', _filters)
+    history.push(path.home + `?${qs.stringify(_filters)}`)
+  }
+  //when loading url or share  url, if query from URL has name search, need to fill search input with that search key
+  useEffect(() => {
+    const { name = '' } = query
+    setValue('name', name)
+  }, [query])
   return (
     <S.StyledHeader>
       <div className="container">
@@ -18,8 +40,22 @@ export default function Header() {
           </S.Logo>
 
           {/* Search Form */}
-          <S.StyledForm>
-            <S.StyledInput placeholder="Search Products" />
+          <S.StyledForm onSubmit={handleSubmit(searchByNameAPI)}>
+            <Controller
+              control={control}
+              name="name"
+              render={({ field }) => (
+                <S.StyledInput
+                  placeholder="Search Products"
+                  onChange={value => {
+                    const data = { name: value.target.value }
+                    searchByNameAPI(data)
+                    field.onChange(value)
+                  }}
+                  value={getValues('name')}
+                />
+              )}
+            />
             <S.StyledButton type="submit">
               <SVGSearchIcon />
             </S.StyledButton>

@@ -9,6 +9,7 @@ import Login from './pages/Auth/Login/Login'
 import Register from './pages/Auth/Register/Register'
 import Home from './pages/Home/Home'
 import NotFound from './pages/NotFound/NotFound'
+import ProductDetail from './pages/ProductDetail/ProductDetail'
 import User from './pages/User/User'
 export default function Routes() {
   return (
@@ -16,6 +17,11 @@ export default function Routes() {
       <Route path={path.home} exact>
         <MainLayout>
           <Home />
+        </MainLayout>
+      </Route>
+      <Route path={path.productDetail}>
+        <MainLayout>
+          <ProductDetail />
         </MainLayout>
       </Route>
       <Route path={path.login}>
@@ -39,6 +45,7 @@ export default function Routes() {
           </MainLayout>
         </AuthenticatedGuard>
       </Route>
+
       {/* Page not found here */}
       <Route path={path.notFound}>
         <NotFound />
