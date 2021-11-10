@@ -80,7 +80,6 @@ export default function ProductDetail() {
     }
     try {
       //AddToCart
-
       const data = await dispatch(addToCart(body))
       unwrapResult(data)
       //Toastify

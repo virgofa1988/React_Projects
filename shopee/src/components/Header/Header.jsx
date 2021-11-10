@@ -9,7 +9,11 @@ import qs from 'query-string'
 import Navbar from '../Navbar/Navbar'
 import Popover from '../Popover/Popover'
 import * as S from './header.style'
+import { useSelector } from 'react-redux'
 export default function Header() {
+  //Get Products List in cart
+  const purchases = useSelector(state => state.cartReducer.purchase)
+
   const { activePopover, showPopover, hidePopover } = useHopover()
   const { control, getValues, handleSubmit, setValue } = useForm({
     defaultValues: {
@@ -67,7 +71,7 @@ export default function Header() {
               {/* Cart Icon with Badge */}
               <S.CartIcon to="">
                 <SVGCartIcon />
-                <S.CartNumberBadge>1</S.CartNumberBadge>
+                {purchases.length > 0 && <S.CartNumberBadge>{purchases.length}</S.CartNumberBadge>}
               </S.CartIcon>
               {/* Cart Popover using Popover again */}
               <Popover active={activePopover}>
@@ -75,20 +79,20 @@ export default function Header() {
                   {/* Popover Header */}
                   <S.PopoverTitle>Products List</S.PopoverTitle>
                   {/* Popover Product Cart */}
-                  <S.MiniProductCart>
-                    <S.MiniProductCartImg
-                      src="https://cf.shopee.vn/file/5dca5671088b750d6c578184f816d9b0_tn"
-                      alt="product"
-                    />
-                    <S.MiniCartTitle>Product in Cart 1</S.MiniCartTitle>
-                    <S.MiniProductPrice>$30</S.MiniProductPrice>
-                  </S.MiniProductCart>
+                  {purchases.slice(0, 5).map(purchase => (
+                    <S.MiniProductCart key={purchase._id}>
+                      <S.MiniProductCartImg src={purchase.product.image} alt={purchase.product.name} />
+                      <S.MiniCartTitle>{purchase.product.name}</S.MiniCartTitle>
+                      <S.MiniProductPrice>{purchase.product.price.toLocaleString()}đ</S.MiniProductPrice>
+                    </S.MiniProductCart>
+                  ))}
+
                   {/* Popover Product Footer */}
                   <S.PopoverFooter>
                     <S.MoreProduct>
-                      <span>One product in cart</span>
+                      {purchases.length > 5 && <span>{purchases.length - 5} products in cart</span>}
                     </S.MoreProduct>
-                    <S.ButtonShowCart to="">View Cart</S.ButtonShowCart>
+                    <S.ButtonShowCart to={path.cart}>View Cart</S.ButtonShowCart>
                   </S.PopoverFooter>
                 </S.PopoverContent>
               </Popover>

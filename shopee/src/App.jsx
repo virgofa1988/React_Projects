@@ -5,29 +5,18 @@ import Routes from './Routes'
 //Toastify
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router'
-import { unauthorize } from './Redux/auth.slice'
-import { path } from './constants/path'
+
+import Authentication from './components/Authentication/Authentication'
 function App() {
-  //Checking status errors should be from app component
-  const status = useSelector(state => state.appReducer.status)
-  const dispatch = useDispatch()
-  const history = useHistory()
-  useEffect(() => {
-    //Handle Token expire or not yet login
-    if (status == 401) {
-      dispatch(unauthorize())
-      history.push(path.login)
-    }
-  }, [status])
   return (
     <div className="App">
+      {/*1. Authentication help to load Product in Cart if use Loged in 
+      2.  //Handle Token expire or not yet login
+      */}
+      <Authentication />
       <Routes />
       <ToastContainer />
     </div>
   )
 }
-
 export default App

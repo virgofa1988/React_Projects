@@ -10,7 +10,6 @@ export const getProductDetail = createAsyncThunk(
 )
 
 //Add To Cart Async Thunk
-
 export const addToCart = createAsyncThunk('productDetail/addToCart', payLoadCreator(purchaseAPI.addToCart))
 
 // export const addToCart = createAsyncThunk('productDetail/addToCart', async (data, thunkAPI) => {
