@@ -15,6 +15,10 @@ const purchaseAPI = {
         status: purchaseStatus.inCart
       }
     })
+  },
+  //Update Purchase
+  updatePurchase(data) {
+    return http.put(`${URL}/update-purchase`, data)
   }
 }
 export default purchaseAPI
