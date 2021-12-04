@@ -47,7 +47,7 @@ class Http {
     return this.instance.put(url, data, config)
   }
   delete(url, data, config = null) {
-    return this.instance.delete(url, { ...data, config })
+    return this.instance.delete(url, { data, ...config })
   }
 }
 

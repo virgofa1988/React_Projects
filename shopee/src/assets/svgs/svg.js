@@ -174,7 +174,6 @@ export const SVGStarWithPercent = () => {
 }
 
 //Register - Login
-
 export const SVGClosedEye = () => {
   return (
     <svg fill="none" viewBox="0 0 20 10" className="_2nnXgl">
@@ -242,6 +241,19 @@ export const SVGIncreaseButton = () => {
   return (
     <svg enableBackground="new 0 0 10 10" viewBox="0 0 10 10" x={0} y={0} className="shopee-svg-icon icon-plus-sign">
       <polygon points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5" />
+    </svg>
+  )
+}
+
+// User Page
+export const SVGEditIcon = () => {
+  return (
+    <svg width={12} height={12} viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: 4 }}>
+      <path
+        d="M8.54 0L6.987 1.56l3.46 3.48L12 3.48M0 8.52l.073 3.428L3.46 12l6.21-6.18-3.46-3.48"
+        fill="#9B9B9B"
+        fillRule="evenodd"
+      />
     </svg>
   )
 }

@@ -5,7 +5,7 @@ import { useHistory } from 'react-router'
 import { useAuthenticate } from 'src/Hooks/useAuthenticate'
 import { unauthorize } from 'src/Redux/auth.slice'
 import { getPurchaseCart } from 'src/Redux/cart.slice'
-
+import { path } from 'src/constants/path'
 export default function Authentication() {
   //This component to check
   const dispatch = useDispatch()

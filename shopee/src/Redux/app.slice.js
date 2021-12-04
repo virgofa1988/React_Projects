@@ -7,7 +7,7 @@ const app = createSlice({
   //Name is a prefix for action name ex: app/action_name
   name: 'app',
   initialState: {
-    //Sucess is 200
+    //Success is 200
     status: 200
   },
   //Listen other actions which is not created from this

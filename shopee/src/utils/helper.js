@@ -1,3 +1,5 @@
+import { unwrapResult } from '@reduxjs/toolkit'
+
 export const isEmail = value => {
   return /^\S+@\S+\.\S+$/.test(value)
 }
@@ -6,6 +8,7 @@ export const isEmail = value => {
 export const payLoadCreator = asyncFunc => async (data, thunkAPI) => {
   try {
     const result = await asyncFunc(data)
+    unwrapResult(result)
     return result
   } catch (error) {
     return thunkAPI.rejectWithValue(error)

@@ -10,7 +10,7 @@ import Authentication from './components/Authentication/Authentication'
 function App() {
   return (
     <div className="App">
-      {/*1. Authentication help to load Product in Cart if use Loged in 
+      {/*1. Authentication help to load Product in Cart if user Loged in 
       2.  //Handle Token expire or not yet login
       */}
       <Authentication />

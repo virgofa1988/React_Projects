@@ -19,6 +19,14 @@ const purchaseAPI = {
   //Update Purchase
   updatePurchase(data) {
     return http.put(`${URL}/update-purchase`, data)
+  },
+  //Delete Purchase
+  deletePurchase(data) {
+    return http.delete(`${URL}`, data)
+  },
+  //Proceed Checkout Purchasing
+  buyPurchase(data) {
+    return http.post(`${URL}/buy-products`, data)
   }
 }
 export default purchaseAPI
