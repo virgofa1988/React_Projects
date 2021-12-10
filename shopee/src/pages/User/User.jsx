@@ -1,6 +1,10 @@
 import React from 'react'
+import { Redirect, Route, Switch } from 'react-router'
 import { SVGEditIcon } from 'src/assets/svgs/svg'
 import { path } from 'src/constants/path'
+import Password from './Password/Password'
+import Profile from './Profile/Profile'
+import Purchase from './Purchase/Purchase'
 import * as S from './user.style'
 
 export default function User() {
@@ -41,7 +45,22 @@ export default function User() {
             </S.SideBarMenuItem>
           </S.SideBarMenu>
         </S.Sidebar>
-        <S.Main></S.Main>
+        <S.Main>
+          <Switch>
+            <Route path={path.user} exact>
+              <Redirect to={path.profile} />
+            </Route>
+            <Route path={path.profile}>
+              <Profile />
+            </Route>
+            <Route path={path.password}>
+              <Password />
+            </Route>
+            <Route path={path.purchase}>
+              <Purchase />
+            </Route>
+          </Switch>
+        </S.Main>
       </S.Container>
     </div>
   )
